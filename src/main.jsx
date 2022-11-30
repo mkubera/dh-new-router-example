@@ -2,6 +2,7 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Hello from "./Hello";
+import Root from "./Root";
 import "./main.css";
 
 // prepare your Router
@@ -9,7 +10,11 @@ const router = createBrowserRouter([
 	// define all Routes here
 	{
 		path: "/",
-		element: <Hello name="Mist" />,
+		element: <Root />,
+		children: [
+			{ path: "hello", element: <Hello name="Mist" /> },
+			{ path: "hello2", element: <Hello name="Yerzhan" /> },
+		],
 	},
 	// every Route is an object:
 	// path: String
